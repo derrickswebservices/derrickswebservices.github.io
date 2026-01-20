@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Web Design by Derrick</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    /* Loading Spinner Styles */
+    .loading-spinner {
+      border: 2px solid #f3f3f3;
+      border-top: 2px solid #6366f1;
+      border-radius: 50%;
+      width: 14px;
+      height: 14px;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    .glass-card { background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(12px); border: 1px solid rgba(51, 65, 85, 0.5); }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-50">
+  <!-- Navbar -->
+  <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur sticky top-0 z-40">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <img src="../favicon.ico" alt="Website Logo" class="h-8 w-8 rounded-lg object-cover" />
+        <span class="font-semibold tracking-tight text-slate-100">
+          Web Design by Derrick
+        </span>
+      </div>
+      <nav class="hidden md:flex items-center gap-6 text-sm text-slate-300">
+        <a href="#home" class="hover:text-white transition">Home</a>
+        <a href="#services" class="hover:text-white transition">Services</a>
+        <a href="#work" class="hover:text-white transition">Work</a>
+        <a href="#about" class="hover:text-white transition">About</a>
+        <a href="#pricing" class="hover:text-white transition">Pricing</a>
+        <a href="#contact" class="hover:text-white transition">Contact</a>
+      </nav>
+      <a href="#contact" class="hidden md:inline-flex items-center px-4 py-2 rounded-lg bg-indigo-500 hover:bg-indigo-400 text-sm font-medium text-white transition">
+        Request a Quote
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="max-w-6xl mx-auto px-4 py-16 md:py-24">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <!-- Text -->
+      <div>
+        <p class="text-xs font-semibold tracking-[0.2em] text-indigo-400 uppercase mb-4">
+          Web Design • Student‑Run • Professional
+        </p>
+        <h1 class="text-3xl md:text-5xl font-semibold tracking-tight text-white mb-4">
+          Building clean, modern websites that make you look professional.
+        </h1>
+        <p class="text-slate-300 text-sm md:text-base mb-6 max-w-xl">
+          I design fast, responsive, and custom‑built sites for students, clubs, small businesses, and anyone who wants a strong online presence.
+        </p>
+        
+     <p>My Portfolio: 
+  <a 
+    href="https://derrickrichard.github.io/profile/" 
+    style="color:#818cf8; text-decoration:underline;"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    https://derrickrichard.github.io/profile/
+  </a>
+</p>
+<br>
+
+        <div class="flex flex-wrap items-center gap-3">
+          <a href="#contact" class="inline-flex items-center px-5 py-2.5 rounded-lg bg-indigo-500 hover:bg-indigo-400 text-sm font-medium text-white transition">
+            Request a Quote
+          </a>
+          <a href="#services" class="inline-flex items-center px-4 py-2 rounded-lg border border-slate-700 text-sm font-medium text-slate-200 hover:border-slate-500 hover:text-white transition">
+            View Services
+          </a>
+        </div>
+        <p class="mt-4 text-xs text-slate-400">
+          Let’s bring your idea to life with a site that actually feels modern.
+        </p>
+      </div>
+
+      <!-- Visual / Mockup -->
+      <div class="relative">
+        <div class="absolute -inset-6 bg-gradient-to-tr from-indigo-500/30 via-cyan-400/20 to-transparent blur-3xl opacity-70"></div>
+        <div class="relative rounded-2xl border border-slate-800 bg-slate-900/70 shadow-2xl overflow-hidden">
+          <div class="flex items-center gap-1 px-4 py-2 border-b border-slate-800 bg-slate-900/80">
+            <span class="h-2.5 w-2.5 rounded-full bg-red-500"></span>
+            <span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span>
+            <span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
+            <span class="ml-3 text-xs text-slate-400">derrickswebservice.run.place/preview/</span>
+          </div>
+          <div class="p-6 space-y-4">
+            <div class="h-6 w-32 rounded-full bg-slate-800 mb-2"></div>
+            <div class="h-4 w-56 rounded-full bg-slate-800 mb-4"></div>
+            <div class="grid grid-cols-3 gap-3">
+              <div class="h-24 rounded-xl bg-gradient-to-br from-indigo-500/60 to-slate-900"></div>
+              <div class="h-24 rounded-xl bg-slate-800"></div>
+              <div class="h-24 rounded-xl bg-slate-800"></div>
+            </div>
+            <div class="mt-4 h-3 w-full rounded-full bg-slate-800"></div>
+            <div class="h-3 w-5/6 rounded-full bg-slate-800"></div>
+            <div class="h-3 w-2/3 rounded-full bg-slate-800"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Step-by-Step Process -->
+  <section id="process" class="max-w-6xl mx-auto px-4 py-16 border-t border-slate-900">
+    <div class="text-center mb-12">
+      <h2 class="text-2xl md:text-3xl font-semibold text-white mb-2">How It Works</h2>
+      <p class="text-sm text-slate-400">The 4 steps to getting your professional website live.</p>
+    </div>
+    <div class="grid md:grid-cols-4 gap-6">
+      <div class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800 relative">
+        <span class="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-indigo-500 flex items-center justify-center text-xs font-bold">1</span>
+        <h3 class="text-sm font-bold mb-2">Quote</h3>
+        <p class="text-[11px] text-slate-400">Fill the form. I'll review and email you a price and timeline within 24 hours.</p>
+      </div>
+      <div class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800 relative">
+        <span class="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-slate-700 flex items-center justify-center text-xs font-bold">2</span>
+        <h3 class="text-sm font-bold mb-2">Deposit</h3>
+        <p class="text-[11px] text-slate-400">Pay the cash down-payment to secure your spot and start development.</p>
+      </div>
+      <div class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800 relative">
+        <span class="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-slate-700 flex items-center justify-center text-xs font-bold">3</span>
+        <h3 class="text-sm font-bold mb-2">Design</h3>
+        <p class="text-[11px] text-slate-400">I build the site. You get a preview link to request changes and finalize the look.</p>
+      </div>
+      <div class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800 relative">
+        <span class="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-slate-700 flex items-center justify-center text-xs font-bold">4</span>
+        <h3 class="text-sm font-bold mb-2">Launch</h3>
+        <p class="text-[11px] text-slate-400">Final payment is made, and your site officially goes live on the web!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="max-w-6xl mx-auto px-4 py-16 border-t border-slate-900">
+    <div class="flex items-end justify-between gap-4 mb-10">
+      <div>
+        <h2 class="text-2xl md:text-3xl font-semibold text-white mb-2">
+          What I Can Build for You
+        </h2>
+        <p class="text-sm text-slate-400 max-w-xl">
+          A full set of services designed to make your site look modern, work smoothly, and feel professional.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="rounded-2xl border border-slate-800 bg-slate-900/60 p-5 hover:border-indigo-500/70 hover:-translate-y-1 transition">
+        <h3 class="text-sm font-semibold text-white mb-2">Custom Website Design</h3>
+        <p class="text-xs text-slate-300">Fully personalized layouts built around your goals, style, and audience.</p>
+      </div>
+      <div class="rounded-2xl border border-slate-800 bg-slate-900/60 p-5 hover:border-indigo-500/70 hover:-translate-y-1 transition">
+        <h3 class="text-sm font-semibold text-white mb-2">Responsive Mobile Optimization</h3>
+        <p class="text-xs text-slate-300">Your site will look clean and professional on phones, tablets, and laptops.</p>
+      </div>
+      <div class="rounded-2xl border border-slate-800 bg-slate-900/60 p-5 hover:border-indigo-500/70 hover:-translate-y-1 transition">
+        <h3 class="text-sm font-semibold text-white mb-2">Website Redesign & Modernization</h3>
+        <p class="text-xs text-slate-300">I upgrade outdated sites into fast, modern, and visually appealing versions.</p>
+      </div>
+      <div class="rounded-2xl border border-slate-800 bg-slate-900/60 p-5 hover:border-indigo-500/70 hover:-translate-y-1 transition">
+        <h3 class="text-sm font-semibold text-white mb-2">Landing Pages for Events or Clubs</h3>
+        <p class="text-xs text-slate-300">Perfect for school clubs, sports teams, fundraisers, and special events.</p>
+      </div>
+      <div class="rounded-2xl border border-slate-800 bg-slate-900/60 p-5 hover:border-indigo-500/70 hover:-translate-y-1 transition">
+        <h3 class="text-sm font-semibold text-white mb-2">Portfolio or Personal Brand Sites</h3>
+        <p class="text-xs text-slate-300">Clean, simple, and professional pages that help you stand out.</p>
+      </div>
+      <div class="rounded-2xl border border-slate-800 bg-slate-900/60 p-5 hover:border-indigo-500/70 hover:-translate-y-1 transition">
+        <h3 class="text-sm font-semibold text-white mb-2">Basic SEO Setup</h3>
+        <p class="text-xs text-slate-300">Titles, descriptions, and structure optimized so your site performs better online.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- My Work Section -->
+  <section id="work" class="max-w-6xl mx-auto px-4 py-16 border-t border-slate-900">
+    <div class="mb-10 text-center md:text-left">
+      <h2 class="text-2xl md:text-3xl font-semibold text-white mb-2">Featured Projects</h2>
+      <p class="text-sm text-slate-400 max-w-xl">A collection of custom applications and professional tools I've developed.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <a href="https://derrickrichard.github.io/profile/" target="_blank" class="group rounded-2xl border border-slate-800 bg-slate-900/60 p-6 hover:border-indigo-500/70 hover:-translate-y-1 transition flex flex-col">
+        <h3 class="text-sm font-semibold text-white mb-2 group-hover:text-indigo-400 transition">Derrick's Profile</h3>
+        <p class="text-xs text-slate-300 flex-grow">An all-in-one professional profile showcasing my skills, musical achievements, and a complete directory of projects.</p>
+        <div class="mt-4 text-[10px] text-indigo-400 font-bold uppercase tracking-widest">View Demo →</div>
+      </a>
+
+      <a href="https://derrickrichard.github.io/CensorCore-Library/" target="_blank" class="group rounded-2xl border border-slate-800 bg-slate-900/60 p-6 hover:border-indigo-500/70 hover:-translate-y-1 transition flex flex-col">
+        <h3 class="text-sm font-semibold text-white mb-2 group-hover:text-indigo-400 transition">CensorCore Library</h3>
+        <p class="text-xs text-slate-300 flex-grow">A professional JavaScript library for advanced text moderation, featuring real-time severity analysis and phrase matching.</p>
+        <div class="mt-4 text-[10px] text-indigo-400 font-bold uppercase tracking-widest">View Demo →</div>
+      </a>
+
+      <a href="https://derrickrichard.github.io/CoreChat/" target="_blank" class="group rounded-2xl border border-slate-800 bg-slate-900/60 p-6 hover:border-indigo-500/70 hover:-translate-y-1 transition flex flex-col">
+        <h3 class="text-sm font-semibold text-white mb-2 group-hover:text-indigo-400 transition">CoreChat</h3>
+        <p class="text-xs text-slate-300 flex-grow">A production-ready P2P communication platform using WebRTC for serverless, encrypted messaging and accountability.</p>
+        <div class="mt-4 text-[10px] text-indigo-400 font-bold uppercase tracking-widest">View Demo →</div>
+      </a>
+
+      <a href="https://derrickrichard.github.io/Mellow-Fellow/" target="_blank" class="group rounded-2xl border border-slate-800 bg-slate-900/60 p-6 hover:border-indigo-500/70 hover:-translate-y-1 transition flex flex-col">
+        <h3 class="text-sm font-semibold text-white mb-2 group-hover:text-indigo-400 transition">Mellow-Fellow AI</h3>
+        <p class="text-xs text-slate-300 flex-grow">Secure P2P inference utilizing Llama-3.1-8B with integrated moderation to prevent AI policy bypass.</p>
+        <div class="mt-4 text-[10px] text-indigo-400 font-bold uppercase tracking-widest">View Demo →</div>
+      </a>
+
+      <a href="https://derrickrichard.github.io/FileLock/" target="_blank" class="group rounded-2xl border border-slate-800 bg-slate-900/70 p-6 hover:border-indigo-500/70 hover:-translate-y-1 transition flex flex-col">
+        <h3 class="text-sm font-semibold text-white mb-2 group-hover:text-indigo-400 transition">FileLock</h3>
+        <p class="text-xs text-slate-300 flex-grow">A utility to encrypt files into self-unlocking HTML pages with password recovery and expiration options.</p>
+        <div class="mt-4 text-[10px] text-indigo-400 font-bold uppercase tracking-widest">View Demo →</div>
+      </a>
+
+      <a href="https://derrickrichard.github.io/FileProof/" target="_blank" class="group rounded-2xl border border-slate-800 bg-slate-900/60 p-6 hover:border-indigo-500/70 hover:-translate-y-1 transition flex flex-col">
+        <h3 class="text-sm font-semibold text-white mb-2 group-hover:text-indigo-400 transition">FileProof</h3>
+        <p class="text-xs text-slate-300 flex-grow">Detect unauthorized changes to any file by comparing cryptographic SHA-256 hashes instantly in the browser.</p>
+        <div class="mt-4 text-[10px] text-indigo-400 font-bold uppercase tracking-widest">View Demo →</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="max-w-6xl mx-auto px-4 py-16 border-t border-slate-900">
+    <div class="max-w-3xl">
+      <h2 class="text-2xl md:text-3xl font-semibold text-white mb-4">Who I Am</h2>
+      <div class="rounded-2xl border border-slate-800 bg-slate-900/70 p-6 shadow-lg">
+        <p class="text-sm text-slate-200 mb-3">
+          I’m a student web designer who focuses on building clean, modern, and easy‑to‑use websites. I care about making things look professional without overcomplicating them. Every site I build is designed from scratch, tailored to the person or group I’m working with, and optimized to work smoothly on any device.
+        </p>
+        <p class="text-sm text-slate-200">
+          I’ve worked on personal projects, school‑related sites, and custom pages for people who want something that feels polished and trustworthy. My goal is simple: create websites that make you look good and help you share your message clearly.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="max-w-6xl mx-auto px-4 py-16 border-t border-slate-900 text-center md:text-left">
+    <div class="grid md:grid-cols-[1.2fr,1fr] gap-8 items-center">
+      <div>
+        <h2 class="text-2xl md:text-3xl font-semibold text-white mb-3">Simple, Transparent Pricing</h2>
+        <p class="text-sm text-slate-400 mb-6 max-w-xl">
+          Clear, straightforward pricing that makes it easy to get started—without surprise fees or confusing packages.
+        </p>
+        <div class="rounded-2xl border border-indigo-500/70 bg-slate-900/70 p-6 shadow-xl">
+          <p class="text-xs font-semibold tracking-[0.2em] text-indigo-400 uppercase mb-4">Initial Down Payments</p>
+          
+          <!-- New Pricing Table -->
+          <div class="grid grid-cols-2 gap-y-2 mb-6 border-b border-slate-800 pb-4">
+            <div class="text-sm text-slate-200 font-medium">Portfolio</div> <div class="text-sm text-indigo-300 text-right">$15</div>
+            <div class="text-sm text-slate-200 font-medium">Club / Org</div> <div class="text-sm text-indigo-300 text-right">$20</div>
+            <div class="text-sm text-slate-200 font-medium Event / Fundraiser">Event / Fundraiser</div> <div class="text-sm text-indigo-300 text-right">$15</div>
+            <div class="text-sm text-slate-200 font-medium">Small Business</div> <div class="text-sm text-indigo-300 text-right">$25</div>
+            <div class="text-sm text-slate-200 font-medium Personal Site">Personal Site</div> <div class="text-sm text-indigo-300 text-right">$20</div>
+            <div class="text-sm text-slate-200 font-medium italic">Other</div> <div class="text-sm text-indigo-300 text-right">Quote only</div>
+          </div>
+
+          <p class="text-xs font-semibold tracking-[0.2em] text-indigo-400 uppercase mb-2">Additional Add-ons</p>
+          <div class="grid grid-cols-2 gap-y-2 mb-4">
+            <div class="text-[11px] text-slate-300">Each additional page</div> <div class="text-[11px] text-white text-right">+$3</div>
+            <div class="text-[11px] text-slate-300">Remove Sig mark</div> <div class="text-[11px] text-white text-right">+$5</div>
+            <div class="text-[11px] text-slate-300">Custom Favicon</div> <div class="text-[11px] text-white text-right">+$12</div>
+          </div>
+
+          <p class="text-[11px] text-slate-400 italic mb-4">
+            Note: The earlier the project is needed (rush orders), the more it will cost. 
+          </p>
+
+          <div class="pt-4 border-t border-slate-800">
+            <p class="text-xs text-slate-300 font-medium mb-1">Maintenance & Recurring:</p>
+            <p class="text-[11px] text-slate-400 mb-2 leading-relaxed italic">
+                Maintenance prices are calculated by me per project. Submit form for a quote. Recurring payments can be weekly or monthly.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ Section -->
+      <div class="space-y-4">
+        <h3 class="text-lg font-bold">Frequently Asked Questions</h3>
+        <div class="p-4 rounded-xl border border-slate-800 bg-slate-900/40">
+            <p class="text-xs font-bold text-white mb-1">Do I have to pay for hosting?</p>
+            <p class="text-[10px] text-slate-400">Regular websites are hosted for free under my domain. Only sites requiring a separate database/server, or your own custom domain have extra monthly costs. You can request a custom domain by emailing me.</p>
+        </div>
+        <div class="p-4 rounded-xl border border-slate-800 bg-slate-900/40">
+            <p class="text-xs font-bold text-white mb-1">What happens if I don't pay?</p>
+            <p class="text-[10px] text-slate-400">Sites with overdue payments are taken offline immediately. To restore the site, the balance must be paid in full.</p>
+        </div>
+        <div class="p-4 rounded-xl border border-slate-800 bg-slate-900/40">
+            <p class="text-xs font-bold text-white mb-1">Can I update my site later?</p>
+            <p class="text-[10px] text-slate-400">Yes. I offer maintenance plans (weekly or monthly) to handle updates for you at a low rate.</p>
+        </div>
+        <div class="p-4 rounded-xl border border-slate-800 bg-slate-900/40">
+            <p class="text-xs font-bold text-white mb-1">What if I aleady have a site, and just want an update or redesign?</p>
+            <p class="text-[10px] text-slate-400">Please email me directly to recieve a quote for these requests, and I will gladly help out.</p>
+        </div>
+        
+        <a href="#contact" class="mt-4 block w-full text-center px-4 py-2.5 rounded-lg bg-indigo-500 hover:bg-indigo-400 text-xs font-medium text-white transition">
+          I'm Ready to Start
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / Quote -->
+  <section id="contact" class="max-w-6xl mx-auto px-4 py-16 border-t border-slate-900">
+    <div class="grid md:grid-cols-2 gap-10">
+      <div>
+        <h2 class="text-2xl md:text-3xl font-semibold text-white mb-3">Get in Touch</h2>
+        <p class="text-sm text-slate-400 mb-4">Share your idea, and I’ll get back to you with a plan and next steps.</p>
+        <div class="space-y-4 text-sm text-slate-300">
+          
+            <!-- Click to Copy Email -->
+            <div onclick="copyEmail()" class="cursor-pointer group flex items-center gap-3 p-3 rounded-xl border border-slate-800 bg-slate-900 hover:border-indigo-500 transition relative">
+                <div class="p-2 bg-indigo-500 rounded-lg"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg></div>
+                <div>
+                    <p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Email Address</p>
+                    <p class="text-xs text-white font-medium">derrickswebservice@proton.me</p>
+                </div>
+                <span id="copyMsg" class="absolute right-4 top-1/2 -translate-y-1/2 text-[10px] text-emerald-400 hidden">Copied!</span>
+            </div>
+          
+          <!-- Live Price Estimate Display -->
+          <div class="p-6 rounded-2xl bg-indigo-500/10 border border-indigo-500/30">
+            <p class="text-xs font-bold text-indigo-400 uppercase tracking-widest mb-1">Estimated Down Payment</p>
+            <p class="text-3xl font-black text-white" id="live_total">$15</p>
+            <p class="text-[10px] text-slate-400 mt-2">Final price depends on timeline and maintenance needs. Rush fees may apply.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="rounded-2xl border border-slate-800 bg-slate-900/70 p-6">
+        <form id="quoteForm" class="space-y-4">
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs text-slate-300 mb-1">Full name</label>
+              <input type="text" id="full_name" name="full_name" class="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs text-slate-100 focus:outline-none focus:border-indigo-500" required />
+            </div>
+            <div>
+              <label class="block text-xs text-slate-300 mb-1">Email address</label>
+              <input type="email" id="email" name="email" class="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs text-slate-100 focus:outline-none focus:border-indigo-500" required />
+            </div>
+          </div>
+
+          <!-- New Website Name Field -->
+          <div>
+            <label class="block text-xs text-slate-300 mb-1">Desired Website Name</label>
+            <input type="text" id="website_name" name="website_name" class="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs text-slate-100 focus:outline-none focus:border-indigo-500" placeholder="my-awesome-site" required />
+            <p class="text-[10px] text-slate-500 mt-1 italic">Notice: All website URLs will look like this: <span class="text-indigo-400">derrickswebservice.run.place/website-name/</span></p>
+          </div>
+
+          <div>
+            <label class="block text-xs text-slate-300 mb-1">Type of website</label>
+            <select id="website_type" name="website_type" class="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs text-slate-100 focus:outline-none focus:border-indigo-500" onchange="calc()">
+              <option value="Portfolio" data-price="15">Portfolio ($15)</option>
+              <option value="Club / Organization" data-price="20">Club / Organization ($20)</option>
+              <option value="Event / Fundraiser" data-price="15">Event / Fundraiser ($15)</option>
+              <option value="Small Business" data-price="25">Small Business ($25)</option>
+              <option value="Personal Site" data-price="20">Personal Site ($20)</option>
+              <option value="Other" data-price="0">Other (Quote Only)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs text-slate-300 mb-1">Project description </label>
+            <textarea id="project_description" name="project_description" rows="3" class="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs text-slate-100 focus:outline-none focus:border-indigo-500" placeholder="Tell me what you want the site to do, who it’s for, and any ideas you already have."></textarea>
+          </div>
+
+          <div>
+            <label class="block text-xs text-slate-300 mb-1">Pages needed (Separate each name by a comma)</label>
+            <input type="text" id="pages_needed" name="pages_needed" class="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs text-slate-100 focus:outline-none focus:border-indigo-500" placeholder="Example: Home, About, Gallery" oninput="calc()" />
+            <p class="text-[10px] text-slate-500 mt-1 italic">Note: Each additional page adds $3 to the total cost.</p>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs text-slate-300 mb-1">Timeline (Urgency increases cost)</label>
+              <input type="text" id="timeline" name="timeline" class="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs text-slate-100 focus:outline-none focus:border-indigo-500" placeholder="Example: by next month" />
+            </div>
+            <div>
+              <label class="block text-xs text-slate-300 mb-1">Preferred payment schedule</label>
+              <select id="payment_schedule" name="payment_schedule" class="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs text-slate-100 focus:outline-none focus:border-indigo-500">
+                <option>Weekly</option>
+                <option>Monthly</option>
+                <option>Not sure yet</option>
+              </select>
+              <p class="text-[10px] text-slate-500 mt-1 italic">Required to keep your site live.</p>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs text-slate-300 mb-1">Maintenance needs</label>
+            <textarea id="maintenance_needs" name="maintenance_needs" rows="2" class="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs text-slate-100 focus:outline-none focus:border-indigo-500" placeholder="If you need ongoing updates, maintenance fees will be calculated based on frequency."></textarea>
+          </div>
+
+          <!-- Checkboxes for Signature, Favicon, and Database -->
+          <div class="space-y-2 py-2">
+            <div class="flex items-center gap-3">
+                <input type="checkbox" id="remove_signature" name="remove_signature" class="w-4 h-4 rounded border-slate-800 bg-slate-950 accent-indigo-500" onchange="calc()">
+                <label for="remove_signature" class="text-xs text-slate-300">Remove Developer Signature Mark? <span class="text-indigo-400">+$5</span></label>
+            </div>
+            <div class="flex items-center gap-3">
+                <input type="checkbox" id="custom_favicon" name="custom_favicon" class="w-4 h-4 rounded border-slate-800 bg-slate-950 accent-indigo-500" onchange="calc()">
+                <label for="custom_favicon" class="text-xs text-slate-300">Custom Favicon? <span class="text-slate-500 italic">(If no, default is used)</span> <span class="text-indigo-400">+$12</span></label>
+            </div>
+            <div class="flex items-center gap-3">
+                <input type="checkbox" id="require_db" name="require_db" class="w-4 h-4 rounded border-slate-800 bg-slate-950 accent-indigo-500" onchange="calc()">
+                <label for="require_db" class="text-xs text-slate-300 flex items-center gap-1.5">
+                  Does the site require a server/database?
+                  <div class="group relative inline-block">
+                    <span class="inline-flex items-center justify-center w-3.5 h-3.5 rounded-full border border-slate-600 text-[10px] text-slate-500 cursor-help hover:border-indigo-500 hover:text-indigo-400 transition-colors">?</span>
+                    <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-48 p-2 bg-slate-900 border border-slate-800 rounded-lg shadow-2xl z-50">
+                      <p class="text-[10px] text-slate-300 leading-tight">Server/Databases are required for features like account storage, chatrooms, live data updates, and dynamic content retrieval.</p>
+                      <div class="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-slate-800"></div>
+                    </div>
+                  </div>
+                </label>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs text-slate-300 mb-1">File upload (optional)</label>
+            <input type="file" name="file_upload" class="w-full text-xs text-slate-300 file:mr-3 file:py-1.5 file:px-3 file:rounded-md file:border-0 file:text-xs file:font-medium file:bg-indigo-500 file:text-white hover:file:bg-indigo-400" />
+          </div>
+
+          <!-- Updated Service Terms Section -->
+          <div class="pt-4 border-t border-slate-800">
+            <h3 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Service Terms & Agreement</h3>
+            <ul class="text-[11px] text-slate-400 space-y-1.5 list-disc list-inside leading-relaxed mb-4">
+              <li>Any inappropriate websites or updates to websites will result in a site removal without a refund.</li>
+              <li>Modifying the site or source code without explicit permission will result in site removal without refund.</li>
+              <li>Attempting to hack or exploit any site under the <span class="text-indigo-400">derrickswebservice.run.place</span> domain will result in an immediate takedown of all your sites without refund.</li>
+              <li>Development will only begin once the initial down payment (Cash Only) has been processed.</li>
+              <li>Clients must provide all required content (text/images) in a timely manner.</li>
+              <li>Maintenance plans cover minor bug fixes and small text updates; major changes require a separate quote.</li>
+              <li>Derrick's Web Service reserves the right to refuse service to anyone for any reason.</li>
+              <li>Deposits are non-refundable once design and development work has commenced.</li>
+            </ul>
+
+            <!-- Added Agreement Checkbox -->
+            <div class="flex items-start gap-3 mt-4 p-3 bg-indigo-500/5 rounded-lg border border-indigo-500/20">
+                <input type="checkbox" id="agree_terms" class="w-4 h-4 mt-0.5" required>
+                <label for="agree_terms" class="text-[11px] text-indigo-300 font-semibold leading-tight">I have read and agree to all Service Terms, including the Cash-Only payment policy and site removal rules.</label>
+            </div>
+          </div>
+
+          <button id="submitBtn" type="submit" class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-indigo-500 hover:bg-indigo-400 text-xs font-medium text-white transition disabled:opacity-50">
+            <span>Send Request</span>
+          </button>
+
+          <p id="formStatus" class="hidden text-center text-xs mt-2"></p>
+
+          <p class="text-[11px] text-slate-500">
+            This form doesn’t process payments. It just sends me your project details so I can follow up. All payments must be paid in cash. Online payment methods coming soon! Refusal to pay will result in a takedown of your site.
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-900 py-6 mt-8">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+      <p>© <span id="year"></span> Web Design by Derrick. All rights reserved.</p>
+      <div class="flex gap-4">
+        <a href="https://derrickrichard.github.io/profile/" class="hover:text-white">Profile</a>
+        <a href="https://dev.to/derrickrichard" class="hover:text-white">Articles</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function copyEmail() {
+        navigator.clipboard.writeText("derrickswebservice@proton.me");
+        const msg = document.getElementById('copyMsg');
+        msg.classList.remove('hidden');
+        setTimeout(() => msg.classList.add('hidden'), 2000);
+    }
+
+    // Live Price Calculation Logic
+    function calc() {
+        const typeSelect = document.getElementById('website_type');
+        const typeBase = parseInt(typeSelect.options[typeSelect.selectedIndex].getAttribute('data-price'));
+        const pagesInput = document.getElementById('pages_needed').value.trim();
+        const removeSig = document.getElementById('remove_signature').checked;
+        const customFav = document.getElementById('custom_favicon').checked;
+        const requireDb = document.getElementById('require_db').checked;
+        const totalDisp = document.getElementById('live_total');
+
+        // Check for "Quote Only" triggers
+        if (typeBase === 0 || requireDb) {
+            totalDisp.textContent = "Quote Only";
+            return;
+        }
+
+        // Split by comma and filter out empty strings to get accurate page count
+        const pagesArray = pagesInput ? pagesInput.split(',').filter(p => p.trim() !== "") : [];
+        const pageCount = pagesArray.length;
+
+        let total = typeBase;
+        // First page is included in base. Only add $3 for additional pages.
+        if (pageCount > 1) {
+            total += (pageCount - 1) * 3;
+        }
+        
+        if (removeSig) total += 5;
+        if (customFav) total += 12;
+
+        totalDisp.textContent = "$" + total;
+    }
+
+    const form = document.getElementById('quoteForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const statusMsg = document.getElementById('formStatus');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<div class="loading-spinner"></div> Sending...';
+      statusMsg.className = 'text-center text-xs mt-2 text-slate-400';
+      statusMsg.textContent = 'Sending request...';
+      statusMsg.classList.remove('hidden');
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch("https://formsubmit.co/ajax/derrickswebservice@proton.me", {
+          method: "POST",
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          statusMsg.textContent = 'Request sent successfully! I will contact you soon to give a final price.';
+          statusMsg.className = 'text-center text-xs mt-2 text-emerald-400';
+          form.reset();
+          calc(); // Reset estimate
+          submitBtn.innerHTML = 'Sent ✅';
+          setTimeout(() => {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = 'Send Request';
+            statusMsg.classList.add('hidden');
+          }, 5000);
+        } else {
+          throw new Error();
+        }
+      } catch (err) {
+        statusMsg.textContent = 'Oops! Something went wrong. Please email directly.';
+        statusMsg.className = 'text-center text-xs mt-2 text-red-400';
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Send Request';
+      }
+    });
+
+    // Run once on load
+    calc();
+  </script>
+</body>
+</html>
