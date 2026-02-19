@@ -427,15 +427,15 @@
           <!-- Checkboxes for Signature, Favicon, and Database -->
           <div class="space-y-2 py-2">
             <div class="flex items-center gap-3">
-                <input type="checkbox" id="remove_signature" name="remove_signature" class="w-4 h-4 rounded border-slate-800 bg-slate-950 accent-indigo-500" onchange="calc()">
+                <input type="checkbox" id="remove_signature" name="remove_signature" value="Yes" class="w-4 h-4 rounded border-slate-800 bg-slate-950 accent-indigo-500" onchange="calc()">
                 <label for="remove_signature" class="text-xs text-slate-300">Remove Developer Signature Mark? <span class="text-indigo-400">+$5</span></label>
             </div>
             <div class="flex items-center gap-3">
-                <input type="checkbox" id="custom_favicon" name="custom_favicon" class="w-4 h-4 rounded border-slate-800 bg-slate-950 accent-indigo-500" onchange="calc()">
+                <input type="checkbox" id="custom_favicon" name="custom_favicon" value="Yes" class="w-4 h-4 rounded border-slate-800 bg-slate-950 accent-indigo-500" onchange="calc()">
                 <label for="custom_favicon" class="text-xs text-slate-300">Custom Favicon? <span class="text-slate-500 italic">(If no, default is used)</span> <span class="text-indigo-400">+$12</span></label>
             </div>
             <div class="flex items-center gap-3">
-                <input type="checkbox" id="require_db" name="require_db" class="w-4 h-4 rounded border-slate-800 bg-slate-950 accent-indigo-500" onchange="calc()">
+                <input type="checkbox" id="require_db" name="require_db" value="Yes" class="w-4 h-4 rounded border-slate-800 bg-slate-950 accent-indigo-500" onchange="calc()">
                 <label for="require_db" class="text-xs text-slate-300 flex items-center gap-1.5">
                   Does the site require a server/database?
                   <div class="group relative inline-block">
@@ -463,9 +463,9 @@
               <li>Deposits are non-refundable once design and development work has commenced.</li>
             </ul>
 
-            <!-- Added Agreement Checkbox -->
+            <!-- FIXED: Added name="agree_terms" and value="Accepted" -->
             <div class="flex items-start gap-3 mt-4 p-3 bg-indigo-500/5 rounded-lg border border-indigo-500/20">
-                <input type="checkbox" id="agree_terms" class="w-4 h-4 mt-0.5" required>
+                <input type="checkbox" id="agree_terms" name="agree_terms" value="Accepted" class="w-4 h-4 mt-0.5" required>
                 <label for="agree_terms" class="text-[11px] text-indigo-300 font-semibold leading-tight">I have read and agree to all Service Terms, including the Cash-Only payment policy and site removal rules.</label>
             </div>
           </div>
@@ -550,7 +550,6 @@
       statusMsg.textContent = 'Sending request...';
       statusMsg.classList.remove('hidden');
 
-      // FIXED: Convert FormData to JSON object for FormSubmit AJAX Compatibility
       const formData = new FormData(form);
       const data = Object.fromEntries(formData.entries());
 
@@ -564,11 +563,14 @@
           body: JSON.stringify(data)
         });
 
-        if (response.ok) {
+        // FIXED: Parse the JSON response to check the 'success' property
+        const result = await response.json();
+
+        if (response.ok && result.success !== "false") {
           statusMsg.textContent = 'Request sent successfully! I will contact you soon to give a final price.';
           statusMsg.className = 'text-center text-xs mt-2 text-emerald-400';
           form.reset();
-          calc(); // Reset estimate
+          calc(); 
           submitBtn.innerHTML = 'Sent ✅';
           setTimeout(() => {
             submitBtn.disabled = false;
@@ -576,10 +578,13 @@
             statusMsg.classList.add('hidden');
           }, 5000);
         } else {
-          throw new Error();
+          // If response is OK but success is false, it's usually because it's running on file:// or email unconfirmed
+          const errorMsg = result.message || 'Submission failed.';
+          throw new Error(errorMsg);
         }
       } catch (err) {
-        statusMsg.textContent = 'Oops! Something went wrong. Please email directly.';
+        // FIXED: Improved error messaging
+        statusMsg.textContent = err.message.includes("server") ? "Error: Must be hosted on a live website to submit." : "Oops! " + err.message;
         statusMsg.className = 'text-center text-xs mt-2 text-red-400';
         submitBtn.disabled = false;
         submitBtn.innerHTML = 'Send Request';
