@@ -539,7 +539,7 @@
       submitBtn.disabled = true;
       submitBtn.innerHTML = '<div class="loading-spinner"></div> Sending...';
       statusMsg.className = 'text-center text-xs mt-2 text-slate-400';
-      statusMsg.textContent = 'Sending request via Formspree...';
+      statusMsg.textContent = 'Submitting form...';
       statusMsg.classList.remove('hidden');
 
       const formData = new FormData(form);
@@ -561,7 +561,7 @@
           statusMsg.className = 'text-center text-xs mt-2 text-emerald-400';
           form.reset();
           calc(); 
-          submitBtn.innerHTML = 'Sent ✅';
+          submitBtn.innerHTML = 'Form Sent Sucessfully!';
           setTimeout(() => {
             submitBtn.disabled = false;
             submitBtn.innerHTML = 'Send Request';
@@ -569,13 +569,13 @@
           }, 5000);
         } else {
           const result = await response.json();
-          throw new Error(result.error || 'Submission failed.');
+          throw new Error(result.error || 'Submission failed. Please email directly.');
         }
       } catch (err) {
-        statusMsg.textContent = "Oops! " + err.message + " Check if you updated your Form ID.";
+        statusMsg.textContent = "Oops! " + err.message + " For Developers: Check if you updated your Form ID.";
         statusMsg.className = 'text-center text-xs mt-2 text-red-400';
         submitBtn.disabled = false;
-        submitBtn.innerHTML = 'Send Request';
+        submitBtn.innerHTML = 'Submit Form';
       }
     });
 
