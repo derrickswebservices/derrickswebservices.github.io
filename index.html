@@ -377,16 +377,32 @@
             <p class="text-[10px] text-slate-500 mt-1 italic">Notice: All website URLs will look like this: <span class="text-indigo-400">derrickswebservices.github.io/website-name/</span></p>
           </div>
 
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs text-slate-300 mb-1">Type of website</label>
+              <select id="website_type" name="website_type" class="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs text-slate-100 focus:outline-none focus:border-indigo-500" onchange="calc()">
+                <option value="Portfolio" data-price="15">Portfolio ($15)</option>
+                <option value="Club / Organization" data-price="20">Club / Organization ($20)</option>
+                <option value="Event / Fundraiser" data-price="15">Event / Fundraiser ($15)</option>
+                <option value="Small Business" data-price="25">Small Business ($25)</option>
+                <option value="Personal Site" data-price="20">Personal Site ($20)</option>
+                <option value="Other" data-price="0">Other (Quote Only)</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs text-slate-300 mb-1">Branding Status</label>
+              <select id="branding_status" name="branding_status" class="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs text-slate-100 focus:outline-none focus:border-indigo-500">
+                <option>I have a logo & colors</option>
+                <option>I need a logo designed</option>
+                <option>Just colors, no logo</option>
+                <option>I have nothing yet</option>
+              </select>
+            </div>
+          </div>
+
           <div>
-            <label class="block text-xs text-slate-300 mb-1">Type of website</label>
-            <select id="website_type" name="website_type" class="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs text-slate-100 focus:outline-none focus:border-indigo-500" onchange="calc()">
-              <option value="Portfolio" data-price="15">Portfolio ($15)</option>
-              <option value="Club / Organization" data-price="20">Club / Organization ($20)</option>
-              <option value="Event / Fundraiser" data-price="15">Event / Fundraiser ($15)</option>
-              <option value="Small Business" data-price="25">Small Business ($25)</option>
-              <option value="Personal Site" data-price="20">Personal Site ($20)</option>
-              <option value="Other" data-price="0">Other (Quote Only)</option>
-            </select>
+            <label class="block text-xs text-slate-300 mb-1">Style Inspiration (Links to sites you like)</label>
+            <textarea id="reference_sites" name="reference_sites" rows="2" class="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs text-slate-100 focus:outline-none focus:border-indigo-500" placeholder="Example: awwwards.com, apple.com, or any specific sites you love the look of."></textarea>
           </div>
 
           <div>
@@ -394,10 +410,19 @@
             <textarea id="project_description" name="project_description" rows="3" class="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs text-slate-100 focus:outline-none focus:border-indigo-500" placeholder="Tell me what you want the site to do, who it’s for, and any ideas you already have."></textarea>
           </div>
 
-          <div>
-            <label class="block text-xs text-slate-300 mb-1">Pages needed (Separate each name by a comma)</label>
-            <input type="text" id="pages_needed" name="pages_needed" class="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs text-slate-100 focus:outline-none focus:border-indigo-500" placeholder="Example: Home, About, Gallery" oninput="calc()" />
-            <p class="text-[10px] text-slate-500 mt-1 italic">Note: Each additional page adds $3 to the total cost.</p>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs text-slate-300 mb-1">Pages needed (Comma separated)</label>
+              <input type="text" id="pages_needed" name="pages_needed" class="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs text-slate-100 focus:outline-none focus:border-indigo-500" placeholder="Home, About, Gallery" oninput="calc()" />
+            </div>
+            <div>
+              <label class="block text-xs text-slate-300 mb-1">Content Status</label>
+              <select id="content_status" name="content_status" class="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs text-slate-100 focus:outline-none focus:border-indigo-500">
+                <option>All text/images are ready</option>
+                <option>I'm still writing the text</option>
+                <option>I need help with content</option>
+              </select>
+            </div>
           </div>
 
           <div class="grid md:grid-cols-2 gap-4">
@@ -412,13 +437,12 @@
                 <option>Monthly</option>
                 <option>Not sure yet</option>
               </select>
-              <p class="text-[10px] text-slate-500 mt-1 italic">Required to keep your site live.</p>
             </div>
           </div>
 
           <div>
             <label class="block text-xs text-slate-300 mb-1">Maintenance needs</label>
-            <textarea id="maintenance_needs" name="maintenance_needs" rows="2" class="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs text-slate-100 focus:outline-none focus:border-indigo-500" placeholder="If you need ongoing updates, maintenance fees will be calculated based on frequency."></textarea>
+            <textarea id="maintenance_needs" name="maintenance_needs" rows="2" class="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs text-slate-100 focus:outline-none focus:border-indigo-500" placeholder="If you need ongoing updates, fees will be calculated based on frequency."></textarea>
           </div>
 
           <!-- Checkboxes -->
@@ -546,7 +570,6 @@
       const data = Object.fromEntries(formData.entries());
 
       try {
-        // REPLACE 'YOUR_FORM_ID_HERE' with your real Formspree ID
         const response = await fetch("https://formspree.io/f/xaqdbrgg", {
           method: "POST",
           headers: { 
